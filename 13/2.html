@@ -11,12 +11,27 @@
 <body ng-app="hd">
 
 <div ng-controller="ctrl" >
+    {{data}}
 </div>
 
 <script>
     var m = angular.module('hd',[]);
     m.controller('ctrl',['$scope',function ($scope) {
 
+        $scope.data = [
+            {name:'后盾网',url:'houdunwang.com'},
+            {name:'后盾人',url:'houdunren.com'}
+        ];
+
+        // 遍历数组
+        angular.forEach($scope.data,function (v,k) {
+            console.log(v);
+        });
+
+        // 遍历数组,处理数组
+        angular.forEach($scope.data,function (v,k) {
+            v.url = 'www.'+v.url;
+        });
     }]);
 
 </script>

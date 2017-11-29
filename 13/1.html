@@ -11,12 +11,15 @@
 <body ng-app="hd">
 
 <div ng-controller="ctrl" >
+
 </div>
 
 <script>
     var m = angular.module('hd',[]);
     m.controller('ctrl',['$scope',function ($scope) {
-
+        var obj = {'name':'后盾网'};
+        angular.extend(obj,{url:'houdunwang.com',address:'北京'});
+        console.log(obj); // {name: "后盾网", url: "houdunwang.com", address: "北京"}
     }]);
 
 </script>
