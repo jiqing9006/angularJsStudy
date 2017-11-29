@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../org/angular-1.6.6.min.js"></script>
+</head>
+<body>
+    <!-- ng-app是指令 定义模块 -->
+    <!-- ng-controller是指令 定义控制器 -->
+    <div ng-app="hd" ng-controller="ctrl">
+        {{name}}
+
+        <!-- 双向数据绑定MVVM -->
+        <h2 ng-bind="name"></h2>
+
+        <input type="text" ng-model="name">
+    </div>
+
+    <script>
+        var m = angular.module('hd',[]);
+        m.controller('ctrl',['$scope',function ($scope) {
+            // 在控制器ctrl中展示scope
+
+            // 视图模型$scope，正常情况下这些数据都是从后台抓回来的
+
+            // viewModel
+            $scope.name="后盾网";
+        }]);
+    </script>
+</body>
+</html>
