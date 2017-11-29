@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" ng-app="hd">
+<head>
+    <meta charset="UTF-8">
+    <script src="../org/angular-1.6.6.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="ctrl">
+    {{name}}
+</div>
+
+<script>
+    var m = angular.module('hd',[]);
+//    m.controller('ctrl',['$scope',function ($score) {
+//        $score.name = "jiqing";
+//    }]);
+
+    m.controller('ctrl',['$scope',function (a) {
+        a.name = "jiqing";
+    }]);
+</script>
+</body>
+</html>

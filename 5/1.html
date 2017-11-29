@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../org/angular-1.6.6.min.js"></script>
+    <link rel="stylesheet" href="../org/css/bootstrap-3.3.7.min.css">
+</head>
+<body ng-app="hd">
+
+<div ng-controller="ctrl">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>商品名称</th>
+            <th>商品价格</th>
+            <th>购买数量</th>
+            <th>总计:</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{goods.title}}</td>
+            <td>{{goods.price}}</td>
+            <td>{{goods.num}}</td>
+            <td>{{goods.num * goods.price}}</td>
+        </tr>
+        </tbody>
+    </table>
+    
+
+    <button ng-click="add();">增加数量</button>
+
+    <button ng-click="reduce();">减少数量</button>
+</div>
+
+<script>
+    var m = angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+        $scope.goods = {'title':'apple mac','price':300,'num':0};
+
+        // 增加数量
+        $scope.add = function () {
+            $scope.goods.num = Math.min(++$scope.goods.num,6); // 最大值为6 ，返回两个数中较小的
+        }
+
+        // 减少数量
+        $scope.reduce = function () {
+            $scope.goods.num = Math.max(--$scope.goods.num,0); // 最小值为0，返回两个数中较大的
+        }
+
+    }]);
+
+</script>
+</body>
+</html>
