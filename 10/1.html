@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../org/angular-1.6.6.min.js"></script>
+    <link rel="stylesheet" href="../org/css/bootstrap-3.3.7.min.css">
+</head>
+<body ng-app="hd">
+
+<div ng-controller="ctrl">
+    游戏: <input type="checkbox" ng-model="data.game">
+    电影: <input type="checkbox" ng-model="data.video">
+
+    {{data}}
+</div>
+
+<script>
+    var m = angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+        $scope.data = {'game':true,'video':false};
+    }]);
+
+</script>
+</body>
+</html>
