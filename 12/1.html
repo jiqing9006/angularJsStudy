@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../org/angular-1.6.6.min.js"></script>
+    <link rel="stylesheet" href="../org/css/bootstrap-3.3.7.min.css">
+</head>
+
+<style></style>
+
+<body ng-app="hd">
+
+<div ng-controller="ctrl" >
+    {{name}}
+</div>
+
+<script>
+
+
+    var m = angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+//        console.log(angular.version);  // 查看版本
+//        console.log(angular.lowercase("NIHAO")); // 转小写
+//        console.log(angular.uppercase("hello")); // 转大写
+//        var obj1 = {name:'后盾人'};
+//        var obj2 = obj1;
+//        obj2.name = '后盾网';
+//        console.log(obj1); // 已经变为了后盾网
+
+        // 深拷贝，就可以解决这个问题
+        var obj1 = {name:'后盾人'};
+        var obj2 = {};
+        angular.copy(obj1,obj2);
+        obj2.name = '后盾网';
+        console.log(obj1); // 已经变为了后盾人
+
+        
+
+
+    }]);
+
+</script>
+</body>
+</html>
