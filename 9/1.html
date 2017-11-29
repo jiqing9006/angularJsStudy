@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../org/angular-1.6.6.min.js"></script>
+    <link rel="stylesheet" href="../org/css/bootstrap-3.3.7.min.css">
+</head>
+<body ng-app="hd">
+
+<div ng-controller="ctrl">
+    网站开启：
+    <div class="radio">
+        <label>
+            <input type="radio"  ng-model="status"  ng-value="1">
+            开启
+        </label>
+
+        <label>
+            <input type="radio"  ng-model="status"  ng-value="0">
+            关闭
+        </label>
+    </div>
+
+    {{status}}
+
+    <!-- ng-show可以控制显示 可以写表达式 -->
+    <div ng-show="status==0">
+        <span class="label label-info">关闭原因:</span>
+        
+        <p class="lead">网站维护中...</p>
+
+    </div>
+</div>
+
+<script>
+    var m = angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+        $scope.status = 1;
+    }]);
+
+</script>
+</body>
+</html>
