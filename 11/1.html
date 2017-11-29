@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../org/angular-1.6.6.min.js"></script>
+    <link rel="stylesheet" href="../org/css/bootstrap-3.3.7.min.css">
+</head>
+
+<style></style>
+
+<body ng-app="hd">
+
+<div ng-controller="ctrl" >
+    <!--
+        v in data 循环遍历 循环3次
+    -->
+
+    <select ng-options="v.value as v.name for v in data" ng-model="city">
+        <option value="">请选择城市</option>
+    </select>
+
+    {{city}}
+</div>
+
+<script>
+    var m = angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+        // 默认选中南京
+        $scope.city = 'nanjing';
+
+        $scope.data = [
+            {'name':'北京',value:'beijing'},
+            {'name':'南京',value:'nanjing'},
+            {'name':'上海',value:'shanghai'}
+        ];
+    }]);
+
+</script>
+</body>
+</html>

@@ -5,16 +5,19 @@
     <script src="../org/angular-1.6.6.min.js"></script>
     <link rel="stylesheet" href="../org/css/bootstrap-3.3.7.min.css">
 </head>
+
+<style></style>
+
 <body ng-app="hd">
 
-<div ng-controller="ctrl">
+<div ng-controller="ctrl" >
     {{name}}
 </div>
 
 <script>
     var m = angular.module('hd',[]);
     m.controller('ctrl',['$scope',function ($scope) {
-        $scope.name = '后盾网';
+
     }]);
 
 </script>
