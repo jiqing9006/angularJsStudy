@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../org/css/bootstrap-3.3.7.min.css">
+</head>
+
+<style></style>
+
+<body ng-app="hd">
+
+<div ng-controller="ctrl" >
+    性别:
+    <select name="sex" id="sex" class="form-control" ng-model="user.sex">
+        <option value=""> -- 选择性别 -- </option>
+        <option ng-value="1" ng-selected="user.sex == 1">男</option>
+        <option ng-value="2" ng-selected="user.sex == 2">女</option>
+    </select>
+</div>
+
+
+<script src="../org/angular-1.6.6.min.js"></script>
+<script>
+    var m = angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+        $scope.user = {sex:2};
+    }]);
+
+</script>
+</body>
+</html>

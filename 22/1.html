@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../org/css/bootstrap-3.3.7.min.css">
+</head>
+
+<style>
+    .red {
+        background: red;
+    }
+
+    .font {
+        font-size:100px;
+    }
+</style>
+
+<body ng-app="hd">
+
+<div ng-controller="ctrl" >
+    <div ng-class="{red:true,font:true}">hello world!</div>
+</div>
+
+
+<script src="../org/angular-1.6.6.min.js"></script>
+<script>
+    var m = angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+
+    }]);
+
+</script>
+</body>
+</html>
