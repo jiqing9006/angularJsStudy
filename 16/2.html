@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../org/css/bootstrap-3.3.7.min.css">
+</head>
+
+<style></style>
+
+<body ng-app="hd">
+
+<div ng-controller="ctrl" >
+    <form action="2.php" method="post" role="form">
+        <legend>表单</legend>
+
+        <div class="form-group">
+            <label for="title">标题</label>
+
+            <!-- ng-trim 对数据进行了过滤处理 -->
+            <input type="text" class="form-control" ng-trim ng-model="title" id="title" >
+        </div>
+
+        <input type="text" name="data"><br/>
+
+        <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+
+    {{title}}
+</div>
+
+<script src="../org/angular-1.6.6.min.js"></script>
+<script src="../org/jquery-3.2.1.min.js"></script>
+
+<script>
+    var m = angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+        $scope.title = "";
+        $('form').submit(function () {
+            $("[name='data']").val($scope.title);
+//            return false;
+        });
+    }]);
+
+</script>
+</body>
+</html>
