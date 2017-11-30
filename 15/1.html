@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../org/angular-1.6.6.min.js"></script>
+    <link rel="stylesheet" href="../org/css/bootstrap-3.3.7.min.css">
+</head>
+
+<style></style>
+
+<body ng-app="hd">
+
+<div ng-controller="ctrl" >
+</div>
+
+<script>
+    var m = angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+        // 检查php分配过来的数据或者动态运算的数据是否是数组
+        console.log(angular.isArray([])); // true
+
+        console.log(angular.isArray({})); // false
+
+        // 是否是日期
+        console.log(angular.isDate(new Date())); // false
+
+        var a;
+        // 是否定义，没有定义数据就是假
+        console.log(angular.isDefined(a)); // false
+
+        var b = 'hello';
+        console.log(angular.isDefined(b)); // true
+
+        // 是否是数字
+        console.log(angular.isNumber(88)); // true
+
+        // 是否是字符串
+        console.log(angular.isString(88)); // false
+
+        // 是否是对象
+        var c = {};
+        console.log(angular.isObject(c)); // true
+
+        // 是否是节点元素
+        var e = document.getElementsByTagName('body').item(0);
+
+        console.log(angular.isElement(e));
+
+        // 比较两个数据是否相同
+        var f = {};
+        var g = [];
+        console.log(angular.equals(f,g));
+    }]);
+
+</script>
+</body>
+</html>
