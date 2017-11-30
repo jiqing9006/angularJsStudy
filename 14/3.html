@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../org/angular-1.6.6.min.js"></script>
+    <script src="../org/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="../org/css/bootstrap-3.3.7.min.css">
+</head>
+
+<style></style>
+
+<body ng-app="hd">
+
+<div ng-controller="ctrl" >
+    <form action="3.php" method="post" role="form">
+        <legend>表单</legend>
+
+        <div class="form-group">
+            <label for="title">标题:</label>
+            <input type="text" class="form-control"  ng-model="field.title" id="title">
+        </div>
+
+        <div class="form-group">
+            <label for="click">点击数:</label>
+            <input type="text" class="form-control"  ng-model="field.click" id="click">
+        </div>
+
+        <div class="form-group">
+            <label for="content">内容:</label>
+            <input type="text" class="form-control"  ng-model="field.content" id="content">
+        </div>
+
+        <div class="form-group" hidden>
+            <textarea name="data" id="" cols="30" rows="10"></textarea>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+    
+    
+    {{data.name}}
+</div>
+
+<script>
+    var m = angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+        $scope.field = {title:'后盾人',click:100,content:'后盾网 人人做后盾'};
+
+        // 结合jq一起使用，dom操作与数据操作相结合
+        $('form').submit(function () {
+            $("[name='data']").val(angular.toJson($scope.field));
+//            return false;
+        });
+    }]);
+
+</script>
+</body>
+</html>
