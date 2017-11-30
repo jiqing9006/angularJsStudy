@@ -10,6 +10,10 @@
 <body ng-app="hd">
 
 <div ng-controller="ctrl" >
+    <input type="checkbox" ng-model="isShow">
+    {{isShow}}
+    <!-- ng-show 通过控制css来显示隐藏 -->
+    <div ng-show="isShow">显示我了</div>
 </div>
 
 

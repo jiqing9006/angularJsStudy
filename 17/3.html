@@ -10,6 +10,13 @@
 <body ng-app="hd">
 
 <div ng-controller="ctrl" >
+    <label><input type="checkbox" ng-model="status"> 接收协议</label>
+    <button ng-init="copyright=false" ng-click="copyright=!copyright;">查看协议</button>
+    <br/>
+    <textarea ng-if="copyright">协议内容:啦啦啦</textarea>
+    <br/>
+    
+    <button ng-disabled="!status">登录</button>
 </div>
 
 

@@ -10,6 +10,12 @@
 <body ng-app="hd">
 
 <div ng-controller="ctrl" >
+    <input type="checkbox" ng-model="isShow">
+    {{isShow}}
+
+    <!-- ng-if 移除了dom节点 -->
+
+    <div ng-if="isShow">显示我了</div>
 </div>
 
 
