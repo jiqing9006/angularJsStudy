@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../org/css/bootstrap-3.3.7.min.css">
+</head>
+
+<style></style>
+
+<body ng-app="hd">
+
+<div ng-controller="ctrl" >
+    <ul>
+        <!-- {{$fisrt}}第一个  {{$last}}最后一个 {{$middle}}中间的 {{$even}}偶数行 {{$odd}}奇数行 -->
+        <li ng-repeat="(k,v) in data  track by $index"  style="{{$even ?'color:red':''}}">
+            名称: {{v}}
+        </li>
+
+    </ul>
+
+</div>
+
+
+<script src="../org/angular-1.6.6.min.js"></script>
+<script>
+    var m = angular.module('hd',[]);
+    m.controller('ctrl',['$scope',function ($scope) {
+        $scope.data = [
+            "百度",
+            "淘宝",
+            "京东",
+            "京东"
+        ];
+    }]);
+
+</script>
+</body>
+</html>

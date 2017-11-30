@@ -10,6 +10,21 @@
 <body ng-app="hd">
 
 <div ng-controller="ctrl" >
+    <ul>
+        <!-- {{$fisrt}}第一个  {{$last}}最后一个 {{$middle}}中间的 {{$even}}偶数行 {{$odd}}奇数行 -->
+        <li ng-repeat="(k,v) in data" style="{{$even ?'color:red':''}}">
+            名称: {{v.name}} 网址: {{v.url}}
+        </li>
+
+        <hr/>
+
+        <li ng-repeat="(k,v) in data">
+            <span ng-if="$first" style="{{$first ?'color:red':''}}">名称: {{v.name}} 网址: {{v.url}}</span>
+            <span ng-if="$middle">名称: {{v.name}} 网址: {{v.url}}</span>
+            <span ng-if="$last" style="{{$last ?'color:blue':''}}">名称: {{v.name}} 网址: {{v.url}}</span>
+        </li>
+    </ul>
+
 </div>
 
 
@@ -17,7 +32,12 @@
 <script>
     var m = angular.module('hd',[]);
     m.controller('ctrl',['$scope',function ($scope) {
-
+        $scope.data = [
+            {name:'百度',url:'baidu.com'},
+            {name:'淘宝',url:'taobao.com'},
+            {name:'京东',url:'jd.com'},
+            {name:'QQ',url:'qq.com'},
+        ];
     }]);
 
 </script>
