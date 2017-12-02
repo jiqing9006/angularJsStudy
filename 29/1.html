@@ -75,6 +75,25 @@
                                             <input type="text" class="form-control"  ng-model="v.name">
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label  class="col-sm-2 control-label" >类型</label>
+                                        <div class="col-sm-10">
+                                            <div class="radio-inline">
+                                                <label>
+                                                    <input type="radio"  value="click" ng-model="v.type"> 关键词
+                                                </label>
+                                            </div>
+
+                                            <div class="radio-inline">
+                                                <label>
+                                                    <input type="radio" value="view" ng-model="v.type" > 网址
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
                                     <div class="form-group">
                                         <label  class="col-sm-2 control-label">链接</label>
                                         <div class="col-sm-10">
@@ -100,11 +119,11 @@
                                         </div>
                                     </div>
                                     <!-- 二级菜单结束 -->
-                                    <button class="btn btn-info">添加菜单</button>
+                                    <button type="button" ng-click="addSubButton(v);" class="btn btn-info">添加菜单</button>
                                 </div>
                             </div>
                             <!-- 一级菜单结束 -->
-                            <button class="btn btn-success">添加一级菜单</button>
+                            <button type="button" ng-click="addTopButton();" class="btn btn-success">添加一级菜单</button>
                         </div>
                     </div>
                 </div>
@@ -116,6 +135,8 @@
     var m = angular.module('hd', []);
     m.controller('ctrl', ['$scope', function ($scope) {
         // 老师语录，东看一下，西看一下，很累还一无所获
+
+        // 学会多个组件之间混合使用，bootstrap
         $scope.data = {
             "button": [
                 {
@@ -141,6 +162,38 @@
                     ]
                 },
             ]
+        };
+
+        $scope.addTopButton = function () {
+            var menu = {
+                "type": "click",
+                "name": "今日歌曲",
+                "key": "V1001_TODAY_MUSIC"
+            };
+            if ($scope.data.button.length == 3) {
+                alert('一级菜单最多为三个');
+            } else {
+                $scope.data.button.push(menu);
+            }
+        }
+        
+        $scope.addSubButton = function (item) {
+            var menu = {
+                "type": "click",
+                "name": "今日歌曲",
+                "key": "V1001_TODAY_MUSIC"
+            };
+
+            if (!item.sub_button) {
+                item.sub_button = [];
+            }
+
+            if (item.sub_button.length == 5) {
+                alert('二级菜单最多为5个');
+            } else {
+                item.sub_button.push(menu);
+            }
+
         }
     }]);
 </script>
