@@ -44,14 +44,21 @@
         text-decoration : none;
     }
 
-    .top-menu {
+    .top-menu ,.sub-menu{
         position: relative;
     }
 
-    .top-menu .top-fa {
+    .top-menu .top-fa ,.sub-menu .sub-fa{
         position: absolute;
         right: -10px;
         top:-10px;
+        color:#999999;
+        cursor: pointer;
+        display: none;
+    }
+
+    .top-menu:hover .top-fa,.sub-menu:hover .sub-fa {
+        display: block;
     }
 </style>
 
@@ -114,7 +121,8 @@
                                     </div>
 
                                     <!-- 二级菜单开始 -->
-                                    <div class="panel panel-default" ng-repeat="d in v.sub_button">
+                                    <div class="panel panel-default sub-menu" ng-repeat="d in v.sub_button">
+                                        <i class="fa fa-times-circle sub-fa fa-2x"></i>
                                         <div class="panel-body">
                                             <div class="form-group">
                                                 <label  class="col-sm-2 control-label">标题</label>
